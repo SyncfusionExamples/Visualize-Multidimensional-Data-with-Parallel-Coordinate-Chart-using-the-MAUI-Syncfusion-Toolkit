@@ -22,6 +22,8 @@ The [Title](https://help.syncfusion.com/cr/maui-toolkit/Syncfusion.Maui.Toolkit.
 
 After executing these code examples, we will get the output that resembles the following image.
 
+![Parallel Coordinate Chart](https://github.com/user-attachments/assets/035ba347-8526-43e0-af43-7223d6617aa2)
+
 ## Troubleshooting
 
 Path too long exception
