@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Toolkit;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:local="clr-namespace:ParallelCoordinateChart"
+             x:Class="ParallelCoordinateChart.MainPage">
+
+    <ContentPage.Content>
+        <Border StrokeThickness="4" Margin="10" Stroke="Gray">
+            <Border.StrokeShape>
+                <RoundRectangle Fill="Black" CornerRadius="10" />
+            </Border.StrokeShape>
+            <local:ParallelCoordinateChart Margin="5,10,0,10" >
+                <local:ParallelCoordinateChart.Title>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="{OnPlatform Android=68,Default=80,iOS=68}"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="55"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"  
+                               Grid.RowSpan="2" 
+                               Source="world.png"
+                               Margin="{OnPlatform Default='0,-25,0,0', iOS='0,-15,0,0', Android='0,-15,0,0'}" 
+                               HeightRequest="70" 
+                               WidthRequest="50"/>
+                        <StackLayout Grid.Column="1" 
+                                     Grid.Row="0" 
+                                     Margin="7,7,0,0">
+                            <Label Text="Trends in Flight Operations and Punctuality (1995-2023)"   
+                                   FontSize="{OnPlatform Android=12,Default=16,iOS=12}"                     
+                                   FontAttributes="Bold" 
+                                   FontFamily="centurygothic"
+                                   TextColor="Black"/>
+                            <Label Text="This chart visualizes changes in flight operations, on-time arrivals, delays, cancellations, and diversions from 1995 to 2023." 
+                                   FontSize="{OnPlatform Android=10,Default=12,iOS=10}" 
+                                   FontFamily="centurygothic"
+                                   TextColor="Black" 
+                                   Margin="0,2,0,0"/>
+                        </StackLayout>
+                    </Grid>
+                </local:ParallelCoordinateChart.Title>
+            </local:ParallelCoordinateChart>
+        </Border>
+    </ContentPage.Content>
+
+</ContentPage>
