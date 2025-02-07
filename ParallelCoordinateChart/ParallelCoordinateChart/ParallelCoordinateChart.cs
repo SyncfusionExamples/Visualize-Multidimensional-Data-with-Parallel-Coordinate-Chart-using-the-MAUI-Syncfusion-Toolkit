@@ -109,41 +109,19 @@ namespace ParallelCoordinateChart
                         yAxis.Interval = 4;
                         yAxis.CrossesAt = 0;
                         yAxis.EdgeLabelsDrawingMode = EdgeLabelsDrawingMode.Fit;
+
+                        string[] years = Enumerable.Range(1995, 29).Select(y => y.ToString()).ToArray();
+
                         yAxis.LabelCreated += (s, e) =>
                         {
-                            e.Label = e.Position switch
+                            if (e.Position >= 0 && e.Position < years.Length)
                             {
-                                0 => "1995",
-                                1 => "1996",
-                                2 => "1997",
-                                3 => "1998",
-                                4 => "1999",
-                                5 => "2000",
-                                6 => "2001",
-                                7 => "2002",
-                                8 => "2003",
-                                9 => "2004",
-                                10 => "2005",
-                                11 => "2006",
-                                12 => "2007",
-                                13 => "2008",
-                                14 => "2009",
-                                15 => "2010",
-                                16 => "2011",
-                                17 => "2012",
-                                18 => "2013",
-                                19 => "2014",
-                                20 => "2015",
-                                21 => "2016",
-                                22 => "2017",
-                                23 => "2018",
-                                24 => "2019",
-                                25 => "2020",
-                                26 => "2021",
-                                27 => "2022",
-                                28 => "2023",
-                                _ => string.Empty 
-                            };
+                                e.Label = years[(int)e.Position];
+                            }
+                            else
+                            {
+                                e.Label = string.Empty;
+                            }
                         };
                         break;
 
@@ -278,39 +256,7 @@ namespace ParallelCoordinateChart
 
         private int YearIndex(string year)
         {
-            return year switch
-            {
-                "1995" => 0,
-                "1996" => 1,
-                "1997" => 2,
-                "1998" => 3,
-                "1999" => 4,
-                "2000" => 5,
-                "2001" => 6,
-                "2002" => 7,
-                "2003" => 8,
-                "2004" => 9,
-                "2005" => 10,
-                "2006" => 11,
-                "2007" => 12,
-                "2008" => 13,
-                "2009" => 14,
-                "2010" => 15,
-                "2011" => 16,
-                "2012" => 17,
-                "2013" => 18,
-                "2014" => 19,
-                "2015" => 20,
-                "2016" => 21,
-                "2017" => 22,
-                "2018" => 23,
-                "2019" => 24,
-                "2020" => 25,
-                "2021" => 26,
-                "2022" => 27,
-                "2023" => 28,
-                _ => -1 
-            };
+            return int.TryParse(year, out int yearInt) ? yearInt - 1995 : -1;
         }
     }
 }
